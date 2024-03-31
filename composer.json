@@ -1,6 +1,6 @@
 {
-    "name": "a/a",
-    "description": "a",
+    "name": "socket server",
+    "description": "socket server",
     "ext-json": "*",
     "autoload": {
         "psr-4": {
@@ -9,7 +9,7 @@
     },
     "authors": [
         {
-            "name": "alex"
+            "name": "SinxAlex"
         }
     ],
     "minimum-stability": "dev",
