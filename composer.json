@@ -1,6 +1,6 @@
 {
-    "name": "socket server",
-    "description": "socket server",
+    "name": "SinxAlex/Socket_Server",
+    "description": "php socket server",
     "ext-json": "*",
     "autoload": {
         "psr-4": {
