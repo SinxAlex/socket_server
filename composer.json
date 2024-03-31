@@ -1,5 +1,5 @@
 {
-    "name": "SinxAlex/Socket_Server",
+    "name": "sinxalex/socket_server",
     "description": "php socket server",
     "ext-json": "*",
     "autoload": {
