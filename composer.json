@@ -1,6 +1,7 @@
 {
     "name": "a/a",
     "description": "a",
+    "ext-json": "*",
     "autoload": {
         "psr-4": {
             "A\\A\\": "src/"
