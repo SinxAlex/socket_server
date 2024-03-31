@@ -1,0 +1,16 @@
+{
+    "name": "a/a",
+    "description": "a",
+    "autoload": {
+        "psr-4": {
+            "A\\A\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alex"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
