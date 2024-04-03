@@ -7,32 +7,32 @@ class Server
     /**
      * @var
      */
-
+    public      $host;
+    public      $port;
     protected   $socket;
-    protected   $bind;
+
     public  function __construct($host,$port)
     {
+        $this->host=$host;
+        $this->port=$port;
         $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-        socket_set_option($this->socket, SOL_SOCKET, SO_REUSEADDR, 1);
-        $this->bind   = socket_bind($this->socket, $host, $port);
-        socket_listen($this->socket);
+        socket_set_option($this->socket, SOL_SOCKET, SO_REUSEADDR, true);
 
     }
 
     public  function Start()
     {
+      if(socket_bind($this->socket, $this->host, $this->port)===true)
+      {
+        $this->Run();
+      }
 
-        if($this->bind)
-        {
-               echo "Server started success!!! \r\n";
-               echo $this->Run();
-        }
-        $this->Stop();
-
+       $this->Stop();
     }
 
     private function  Run()
     {
+        socket_listen($this->socket);
         $clients = array($this->socket);
         while (true)
         {
@@ -70,7 +70,7 @@ class Server
                     // remove client for $clients array
                     $key = array_search($read_sock, $clients);
                     unset($clients[$key]);
-                    echo "client disconnected.\n";
+                    echo "Client disconnected.\n";
                     // continue to the next client to read from, if any
                     continue;
                 }
@@ -109,5 +109,6 @@ class Server
     public  function Stop()
     {
         socket_close($this->socket);
+        exit();
     }
 }
